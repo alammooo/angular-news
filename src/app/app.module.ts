@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TitleListComponent } from './components/title-list/title-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { StoryDetailComponent } from './components/story-detail/story-detail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const appRoutes: Routes = [
   { path: '', component: TitleListComponent },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

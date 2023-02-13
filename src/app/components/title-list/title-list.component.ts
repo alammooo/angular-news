@@ -10,6 +10,7 @@ import { TitleService } from '../../services/title.service';
 export class TitleListComponent implements OnInit {
   ids: number[] = [];
   items: { [key: number]: any } = {};
+  p: number = 1;
 
   constructor(private titleService: TitleService, private router: Router) {}
   ngOnInit() {
