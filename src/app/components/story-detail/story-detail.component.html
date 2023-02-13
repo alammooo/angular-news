@@ -1,0 +1,41 @@
+<div
+  class="container max-w-6xl mx-auto justify-center flex flex-col items-center my-5"
+>
+  <div
+    class="shadow-md py-10 px-36 border text-yellow-300 bg-sky-900 flex flex-col gap-3"
+  >
+    <a (click)="backToHome()" class="cursor-pointer">◀️ Back to home</a>
+    <h1 class="text-2xl">{{ item.title }}</h1>
+    <div class="text-stone-200 flex gap-3 mt-1">
+      <span class=""> {{ item?.score }} points </span>
+      <span class=""> by {{ item?.by }} </span>
+      <span class="">
+        {{ item?.time | date : "medium" }}
+      </span>
+      <span class="border-l-2 pl-3">
+        {{ item?.kids?.length || 0 }} comments
+      </span>
+    </div>
+    <p class="leading-9 text-xl text-justify">{{ item?.text }}</p>
+    <h2 class="text-xl mt-5 text-white">Comments</h2>
+    <section class="flex flex-col">
+      <div *ngFor="let comment of comments" class="bg-white shadow-md my-2 p-5">
+        <div class="flex gap-3 text-sky-900 font-light">
+          <p>by {{ comment.by }}</p>
+          <p class="border-l-2 pl-3 border-gray-700">
+            {{ comment.time | date : "medium" }}
+          </p>
+        </div>
+        <div>
+          <p class="text-black">
+            {{
+              comment.text?.length > 200
+                ? comment.text?.slice(0, 200) + ". . ."
+                : comment.text
+            }}
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

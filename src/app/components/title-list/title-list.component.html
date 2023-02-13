@@ -1,0 +1,23 @@
+<div class="container mx-auto justify-center flex flex-col items-center my-5">
+  <div
+    class="shadow-md py-10 px-36 border text-yellow-300 bg-sky-900 flex flex-col gap-3"
+  >
+    <div *ngFor="let id of ids" class="border-b-2 pb-3 border-gray-500">
+      <a
+        class="cursor-pointer text-xl font-medium"
+        [routerLink]="['/story', id]"
+        >{{ items[id]?.title }}</a
+      >
+      <div class="text-stone-200 flex gap-3 mt-1">
+        <span class=""> {{ items[id]?.score }} points </span>
+        <span class=""> by {{ items[id]?.by }} </span>
+        <span class="">
+          {{ items[id]?.time | date : "medium" }}
+        </span>
+        <span class="border-l-2 pl-3">
+          {{ items[id]?.kids?.length || 0 }} comments
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
